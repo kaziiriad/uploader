@@ -3,7 +3,6 @@ from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
 from django.core.files.storage import FileSystemStorage
-from .encoder_1 import encode
 import requests
 import subprocess
 from django.http import JsonResponse
