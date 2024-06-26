@@ -1,8 +1,8 @@
-# from django.db import models
+from django.db import models
 
-# # Create your models here.
-# class VideoFile(models.Model):
+# Create your models here.
+# class MPDFile(models.Model):
 
 #     title = models.CharField(max_length=50)
-#     file = models.FileField(upload_to='videos/')
+#     mpd = models.FileField(null=True, blank=True)
 #     uploaded_at = models.DateTimeField(auto_now_add=True)

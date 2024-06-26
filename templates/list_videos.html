@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>MPD File List</title>
+</head>
+<body>
+   
+    <a href="{% url 'video-upload-html' %}"> <h1>Upload New Video</h1></a>
+    <h1>MPD File List</h1>
+    <ul>
+        {% for file in mpd_files %}
+        <li><a href="{% url 'stream-html' file.pk %}">{{ file.title }}</a></li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

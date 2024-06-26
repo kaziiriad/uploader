@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 
 from pathlib import Path
+import environ
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -40,10 +41,10 @@ INSTALLED_APPS = [
 ]
 
 EXTERNAL_APPS = [
-    'rest_framework',
+    # 'rest_framework',
     'uploader_app',
     "corsheaders",
-
+    # 'storages',
 ]
 
 
@@ -125,8 +126,12 @@ USE_I18N = True
 
 USE_TZ = True
 
-MEDIA_URL = '/media/'
-MEDIA_ROOT = BASE_DIR /'media'
+# MEDIA_URL = '/media/'
+# MEDIA_ROOT = BASE_DIR / 'media'
+
+
+# STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+# DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
@@ -148,3 +153,24 @@ CORS_ALLOW_HEADERS = (
     "x-csrftoken",
     "x-requested-with",
 )
+
+# AWS_ACCESS_KEY_ID="AKIAW3MEDNHWJ6A5FEAM"
+# AWS_SECRET_ACCESS_KEY="4reU0bmFoXEoilIZAhSHxX6MWaHR/65E1Owco4SX"
+# AWS_STORAGE_BUCKET_NAME="myuploaderbucket"
+# AWS_S3_REGION_NAME="ap-souteast-1"  # e.g. 'us-east-1'
+# AWS_S3_CUSTOM_DOMAIN=f'{AWS_STORAGE_BUCKET_NAME}.s3.amazonaws.com'
+# AWS_LOCATION = 'media'
+
+# DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+
+# MEDIA_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/{AWS_LOCATION}/'
+
+MEDIA_ROOT = BASE_DIR / 'media'
+
+# # Celery Configuration Options
+# CELERY_BROKER_URL = 'redis://localhost:6379/0'
+# CELERY_RESULT_BACKEND = 'redis://localhost:6379/0'
+# CELERY_ACCEPT_CONTENT = ['json']
+# CELERY_TASK_SERIALIZER = 'json'
+# CELERY_RESULT_SERIALIZER = 'json'
+# CELERY_TIMEZONE = 'UTC'
